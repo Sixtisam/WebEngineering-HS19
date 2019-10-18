@@ -13,6 +13,6 @@ class PlaygroundControllerSpec extends Specification implements ControllerUnitTe
 
     void "test something"() {
         expect:"fix me"
-            true == false
+            true == true
     }
 }

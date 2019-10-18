@@ -19,20 +19,42 @@
             var input = document.getElementById(valueName);
             input.value = parseInt(input.value) + 1 ;
         }
-
-        // todo: add a function to decrease the value
+        function decrease(valueName) {
+            var input = document.getElementById(valueName);
+            input.value = parseInt(input.value) - 1 ;
+        }
 
     </script>
+    <style>
+        @keyframes rotating {
+            from {
+                transform: rotate(0deg) skew(10deg);
+            }
+            to {
+                transform: rotate(360deg) skew(50deg);
+            }
+        }
+
+        .animated-svg {
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+            animation-duration: 60s;
+            animation-name: rotating;
+        }
+    </style>
 </head>
 <body>
-    <form action="/multiplicationCircle/index">
+    <form action="/multiplicationCircle/index" style="position: fixed; top: 0; left: 0;z-index: 100">
       <tmpl:up_down_input name="segmentCount" label="Segments" value="${circleInstance.segmentCount}" />
-
-      <!-- TODO: add an input for the table base -->
+      <tmpl:up_down_input name="tableBase" label="Table base" value="${circleInstance.tableBase}" />
+      <tmpl:up_down_input name="radius" label="Radius" value="${circleInstance.radius}" />
 
     </form>
-    <svg width="400" height="400">
-        <circle r="198" cx="200" cy="200"/>
+
+    <svg width="${circleInstance.radius * 2}" height="${circleInstance.radius * 2}" class="animated-svg">
+        <circle r="${circleInstance.radius - 1}" cx="${circleInstance.radius}" cy="${circleInstance.radius}"/>
         <g:each var="line" in="${circleInstance.lines}">
             <line
                 x1="${line.x1}"

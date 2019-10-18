@@ -25,11 +25,30 @@ class MultiplicationCircleSpec extends GebSpec {
         when: "click to bump value down"
             $("#segmentCountDown").click()
 
-        then: "the field is bumped up"
+        then: "the field is bumped down"
             $("form").segmentCount == "10"
     }
 
 
-//  add a test that checks the form for the table base
+    void "Changing table base with JavaScript"() {
+        when:
+        go '/MultiplicationCircle.html'
+        then:
+        title == "Multiplication Circle"
+        $("form").tableBase == "2"
+
+        when: "click to bump value up"
+        $("#tableBaseUp").click()
+
+        then: "the field is bumped up"
+        $("form").tableBase == "3"
+
+        when: "click to bump value down"
+        $("#tableBaseDown").click()
+
+        then: "the field is bumped down"
+        $("form").tableBase == "2"
+    }
+
 
 }
