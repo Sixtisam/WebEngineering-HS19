@@ -35,7 +35,7 @@
             }
         }
 
-        .animated-svg {
+        .animated-svg2 {
             animation-iteration-count: infinite;
             animation-fill-mode: forwards;
             animation-direction: alternate;
@@ -46,7 +46,7 @@
     </style>
 </head>
 <body>
-    <form action="/multiplicationCircle/index" style="position: fixed; top: 0; left: 0;z-index: 100">
+    <form action="/multiplicationCircle/index" sstyle="position: fixed; top: 0; left: 0;z-index: 100">
       <tmpl:up_down_input name="segmentCount" label="Segments" value="${circleInstance.segmentCount}" />
       <tmpl:up_down_input name="tableBase" label="Table base" value="${circleInstance.tableBase}" />
       <tmpl:up_down_input name="radius" label="Radius" value="${circleInstance.radius}" />
