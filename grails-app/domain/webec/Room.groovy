@@ -6,6 +6,9 @@ class Room {
      int capacity // numbear of seating places
 
 
+    String toString(){
+        "$name ($capacity Plätze)"
+    }
 
     static constraints = {
     }
